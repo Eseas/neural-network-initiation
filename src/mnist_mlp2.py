@@ -1,10 +1,7 @@
 '''
 Trains a simple deep NN on the MNIST dataset and one extra class.
 
-Gets to 0.9663 test accuracy after 1 epochs
-Gets to 0.9811 test accuracy after 3 epochs
 
-12 seconds per epoch on a Skylake Intel-i5 CPU.
 '''
 
 from __future__ import print_function
@@ -29,7 +26,7 @@ epochs = 1
 
 
 #
-# Prepare custom class extention
+# Prepare custom class extention: 75:25
 #
 image_list = []
 for filename in glob.glob('teach-data/A/*.png'):
@@ -37,15 +34,16 @@ for filename in glob.glob('teach-data/A/*.png'):
     image_list.append(img_to_array(im))
 
 x_train2 = np.array(image_list)
-x_train2 = x_train2[:1000]
-x_train2 = x_train2.reshape(1000, 784)
+x_train2 = x_train2[:1350]
+x_train2 = x_train2.reshape(1350, 784)
 
 x_test2  = np.array(image_list)
-x_test2  = x_test2[1000:1800]
-x_test2  = x_test2.reshape(800, 784)
+x_test2  = x_test2[1350:1800]
+x_test2  = x_test2.reshape(450, 784)
 
-y_test2  = [10] * 800
-y_train2 = [10] * 1000
+y_train2 = [10] * 1350
+y_test2  = [10] * 450
+
 
 
 #
@@ -79,9 +77,9 @@ y_test  = keras.utils.to_categorical(y_test,  num_classes)
 #
 model = Sequential()
 model.add(Dense(512, activation='relu', input_shape=(784,)))
-model.add(Dropout(0.2))
-model.add(Dense(512, activation='relu'))
-model.add(Dropout(0.2))
+# model.add(Dropout(0.2))
+# model.add(Dense(512, activation='relu'))
+# model.add(Dropout(0.2))
 model.add(Dense(num_classes, activation='softmax'))
 
 model.summary()
