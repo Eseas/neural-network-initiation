@@ -82,8 +82,7 @@ def load_data():
 #
 def build_model():
     model = Sequential()
-
-    model.add(Dense(512, activation='relu', input_shape=(784,))) # 512 - output vector dimension
+    model.add(Dense(512, activation='relu', input_shape=(784,)))
     model.add(Dropout(0.2))
     model.add(Dense(512, activation='relu'))
     model.add(Dropout(0.2))
@@ -102,7 +101,7 @@ def train(model, x_train, y_train, x_test, y_test):
                                              embeddings_layer_names=None, embeddings_metadata=None)
 
     model.fit(x_train, y_train,
-                        batch_size=BATCH_SIZE, #how many examples at once
+                        batch_size=BATCH_SIZE,
                         epochs=EPOCHS,
                         verbose=1,
                         validation_data=(x_test, y_test),

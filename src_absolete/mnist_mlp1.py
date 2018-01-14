@@ -22,7 +22,7 @@ import numpy as np
 #
 batch_size = 128
 num_classes = 11
-epochs = 1
+epochs = 5
 
 
 #
@@ -77,9 +77,9 @@ y_test  = keras.utils.to_categorical(y_test,  num_classes)
 #
 model = Sequential()
 model.add(Dense(512, activation='relu', input_shape=(784,)))
-# model.add(Dropout(0.2))
-# model.add(Dense(512, activation='relu'))
-# model.add(Dropout(0.2))
+model.add(Dropout(0.2))
+model.add(Dense(512, activation='relu'))
+model.add(Dropout(0.2))
 model.add(Dense(num_classes, activation='softmax'))
 
 model.summary()
