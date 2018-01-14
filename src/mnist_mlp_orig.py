@@ -30,30 +30,14 @@ import numpy as np
 #
 MODEL_NAME = 'mnist_convnet'
 BATCH_SIZE = 128
-NUM_CLASSES = 11
-EPOCHS = 6
+NUM_CLASSES = 10
+EPOCHS = 20
 
 
 #
 # Prepare custom class extention: 75:25
 #
 def load_data():
-    image_list = []
-    for filename in glob.glob('teach-data/A/*.png'):
-        im=Image.open(filename)
-        image_list.append(img_to_array(im))
-
-    x_train2 = np.array(image_list)
-    x_train2 = x_train2[:1350]
-    x_train2 = x_train2.reshape(1350, 784)
-
-    x_test2  = np.array(image_list)
-    x_test2  = x_test2[1350:1800]
-    x_test2  = x_test2.reshape(450, 784)
-
-    y_train2 = [10] * 1350
-    y_test2  = [10] * 450
-
     #
     # Prepare train and test sets
     #
@@ -61,11 +45,6 @@ def load_data():
     x_train = x_train.astype('float32')
     x_train = x_train.reshape(60000, 784)
     x_test  = x_test.reshape(10000, 784)
-
-    x_train = np.concatenate((x_train, x_train2))
-    x_test  = np.concatenate((x_test,  x_test2 ))
-    y_train = np.concatenate((y_train, y_train2))
-    y_test  = np.concatenate((y_test,  y_test2 ))
 
     x_train = x_train.astype('float32')
     x_test  = x_test.astype('float32')

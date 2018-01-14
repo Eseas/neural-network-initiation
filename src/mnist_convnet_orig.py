@@ -17,7 +17,7 @@ from tensorflow.python.tools import freeze_graph
 from tensorflow.python.tools import optimize_for_inference_lib
 
 MODEL_NAME = 'mnist_convnet'
-EPOCHS = 1
+EPOCHS = 3
 BATCH_SIZE = 128
 
 
@@ -43,17 +43,17 @@ def build_model():
     model.add(MaxPooling2D(pool_size=2, strides=2, padding='same'))
     # 14*14*64
 
-    # model.add(Conv2D(filters=128, kernel_size=3, strides=1, \
-    #         padding='same', activation='relu'))
-    # # 14*14*128
-    # model.add(MaxPooling2D(pool_size=2, strides=2, padding='same'))
-    # # 7*7*128
+    model.add(Conv2D(filters=128, kernel_size=3, strides=1, \
+            padding='same', activation='relu'))
+    # 14*14*128
+    model.add(MaxPooling2D(pool_size=2, strides=2, padding='same'))
+    # 7*7*128
 
-    # model.add(Conv2D(filters=256, kernel_size=3, strides=1, \
-    #         padding='same', activation='relu'))
-    # # 7*7*256
-    # model.add(MaxPooling2D(pool_size=2, strides=2, padding='same'))
-    # # 4*4*256
+    model.add(Conv2D(filters=256, kernel_size=3, strides=1, \
+            padding='same', activation='relu'))
+    # 7*7*256
+    model.add(MaxPooling2D(pool_size=2, strides=2, padding='same'))
+    # 4*4*256
 
     model.add(Flatten())
     model.add(Dense(1024, activation='relu'))

@@ -31,7 +31,7 @@ import numpy as np
 MODEL_NAME = 'mnist_convnet'
 BATCH_SIZE = 128
 NUM_CLASSES = 11
-EPOCHS = 6
+EPOCHS = 20
 
 
 #
@@ -82,11 +82,10 @@ def load_data():
 #
 def build_model():
     model = Sequential()
-
     model.add(Dense(512, activation='relu', input_shape=(784,))) # 512 - output vector dimension
-    model.add(Dropout(0.2))
+    # model.add(Dropout(0.2))
     model.add(Dense(512, activation='relu'))
-    model.add(Dropout(0.2))
+    # model.add(Dropout(0.2))
     model.add(Dense(NUM_CLASSES, activation='softmax'))
     model.summary()
     return model
