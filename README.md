@@ -41,7 +41,7 @@ Total params: 669,706
 Test loss: 0.12217565270982886<br/>
 Test accuracy: 0.9827
 
-<img src="results/mnist_mlp_orig_20.png" width="800" height="600" />
+<img src="results/mnist_mlp_orig.png" width="800" height="600" />
 
 ## Extended
 MNIST extended with letter "A" from NOT_MNIST.
@@ -83,7 +83,7 @@ Total params: 670,219
 Test loss: 0.10466432817719966<br/>
 Test accuracy: 0.9851674641148326
 
-<img src="results/mnist_mlp_20.png" width="800" height="600" />
+<img src="results/mnist_mlp_extended.png" width="800" height="600" />
 
 ### Configuration 1
 Time: 20 x 4s
