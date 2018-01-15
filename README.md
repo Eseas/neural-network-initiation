@@ -107,7 +107,7 @@ Test accuracy: 0.9839234449760765
 <img src="results/mnist_mlp_conf1.png" width="800" height="600" />
 
 ### Configuration 2
-Time: 3 x 2m30s
+Time: 10 x 2m30s
 
 Using convolutional network for the same task.<br>
 Expecting:
@@ -116,7 +116,7 @@ Expecting:
 ```
 BATCH_SIZE = 128
 NUM_CLASSES = 10
-EPOCHS = 3
+EPOCHS = 10
 ```
 
 ```
